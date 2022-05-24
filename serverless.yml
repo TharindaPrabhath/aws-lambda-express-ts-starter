@@ -1,0 +1,16 @@
+service: driflys-lambda
+plugins:
+  - serverless-offline
+provider:
+  name: aws
+  runtime: nodejs14.x
+  apiGateway:
+    minimumCompressionSize: 1024
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+functions:
+  app:
+    handler: dist/app.hello
+    events:
+      - http: ANY /
+      - http: "ANY /{proxy+}"
