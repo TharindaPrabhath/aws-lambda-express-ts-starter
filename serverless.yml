@@ -10,7 +10,11 @@ provider:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
 functions:
   app:
-    handler: dist/app.hello
+    handler: dist/app.handler
     events:
-      - http: ANY /
-      - http: "ANY /{proxy+}"
+      - http:
+          method: GET
+          path: /
+      - http:
+          method: ANY
+          path: "/{proxy+}"

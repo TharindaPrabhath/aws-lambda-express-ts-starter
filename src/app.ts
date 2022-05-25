@@ -4,13 +4,9 @@ import express, { Request, Response } from "express";
 
 const app = express();
 
-app.get("/message", (req: Request, res: Response) => {
-  res.send({ message: "This is message route" });
-});
-
-app.use((req: Request, res: Response) => {
-  res.send({ message: "Server is running" });
+app.get("/status", (req: Request, res: Response) => {
+  res.send({ message: "Up & running..." });
 });
 
 // @ts-ignore
-export const hello: APIGatewayProxyHandler = serverless(app);
+export const handler: APIGatewayProxyHandler = serverless(app);
