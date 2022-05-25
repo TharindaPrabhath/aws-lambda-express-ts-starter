@@ -13,7 +13,7 @@ functions:
     handler: dist/app.handler
     events:
       - http:
-          method: GET
+          method: ANY
           path: /
       - http:
           method: ANY
